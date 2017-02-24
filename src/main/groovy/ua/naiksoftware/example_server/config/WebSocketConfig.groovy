@@ -19,7 +19,8 @@ class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
 
     @Override
     void configureMessageBroker(MessageBrokerRegistry config) {
-        config.enableStompBrokerRelay("/topic", "/queue", "/exchange");
+        config.enableSimpleBroker("/topic", "/queue", "/exchange");
+//        config.enableStompBrokerRelay("/topic", "/queue", "/exchange"); // Uncomment for external message broker (ActiveMQ, RabbitMQ)
         config.setApplicationDestinationPrefixes("/topic", "/queue"); // prefix in client queries
         config.setUserDestinationPrefix("/user");
     }
