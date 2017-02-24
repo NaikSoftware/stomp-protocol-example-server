@@ -7,6 +7,7 @@ import org.springframework.messaging.handler.annotation.SendTo
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 import ua.naiksoftware.example_server.model.EchoModel
 import ua.naiksoftware.example_server.service.SocketService
@@ -29,7 +30,7 @@ class SocketController {
     }
 
     @RequestMapping(value = '/hello-convert-and-send', method = RequestMethod.POST)
-    void echoConvertAndSend(@RequestBody String message) {
+    void echoConvertAndSend(@RequestParam('msg') String message) {
         socketService.echoMessage(message)
     }
 }
