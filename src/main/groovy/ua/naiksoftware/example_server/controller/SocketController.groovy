@@ -25,7 +25,7 @@ class SocketController {
     @SendTo('/topic/greetings')
     EchoModel echoMessageMapping(String message) {
         log.debug("React to hello-msg-mapping")
-        return new EchoModel(message)
+        return new EchoModel(message.trim())
     }
 
     @RequestMapping(value = '/hello-convert-and-send', method = RequestMethod.POST)
